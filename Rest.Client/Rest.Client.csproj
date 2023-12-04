@@ -1,7 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RepositoryUrl>https://github.com/RezaAmd/Rest.Client</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/RezaAmd/Rest.Client</PackageProjectUrl>
+    <Title>RestClient</Title>
+    <Version>2.1.0</Version>
+    <Authors>Reza Ahmadi</Authors>
   </PropertyGroup>
 
 </Project>

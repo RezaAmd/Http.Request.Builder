@@ -5,8 +5,18 @@
     <RepositoryUrl>https://github.com/RezaAmd/Rest.Client</RepositoryUrl>
     <PackageProjectUrl>https://github.com/RezaAmd/Rest.Client</PackageProjectUrl>
     <Title>RestClient</Title>
-    <Version>2.1.0</Version>
+    <Version>2.1.5</Version>
     <Authors>Reza Ahmadi</Authors>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

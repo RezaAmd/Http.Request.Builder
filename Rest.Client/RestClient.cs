@@ -76,6 +76,9 @@ namespace Rest.Client
         /// <returns>Tuple of (Status Code, Content) after request sent.</returns>
         public async Task<(HttpStatusCode StatusCode, string Content)> SendAsync(CancellationToken cancellationToken = default)
         {
+            if (cancellationToken.IsCancellationRequested)
+                return (HttpStatusCode.NoContent, null);
+
             // Append parameters
             #region Parameters
 

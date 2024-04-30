@@ -8,7 +8,8 @@ namespace HttpRequestBuilder.Response
         HttpContent Content { get; }
     }
 
-    public interface IHttpResponse<out TSuccessValue> where TSuccessValue : class
+    public interface IHttpResponse<out TSuccessValue>
+        : IHttpResponse where TSuccessValue : class
     {
         TSuccessValue? Value { get; }
     }

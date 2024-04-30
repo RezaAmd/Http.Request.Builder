@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HttpRequestBuilder.Builder.RequestBuilder" Collapsed="true">
+    <Position X="8.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAACAAAAgEAAAAAIAAIAAAA=</HashCode>
+      <FileName>Builder\RequestBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="HttpRequestBuilder.Request.IHttpRequest">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAAIA=</HashCode>
+      <FileName>Request\IHttpRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HttpRequestBuilder.Builder.IAuthorizationBuilder">
+    <Position X="2.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\IAuthorizationBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HttpRequestBuilder.Builder.IBearerTokenAuthBuilder">
+    <Position X="3" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\IBearerTokenAuthBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HttpRequestBuilder.Builder.IHeaderOption">
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\IHeaderOption.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HttpRequestBuilder.Builder.IHeaderOrBuilder">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\IHeaderOrBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HttpRequestBuilder.Builder.IHostBuilder">
+    <Position X="8.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Builder\IHostBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HttpRequestBuilder.Builder.IHttpHeaderBuilder">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\IHttpHeaderBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HttpRequestBuilder.Builder.IOptionsBuilder">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\IOptionsBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HttpRequestBuilder.Builder.IRequestBuilder">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\IRequestBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="HttpRequestBuilder.Builder.IRouteBuilder">
+    <Position X="2.25" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Builder\IRouteBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

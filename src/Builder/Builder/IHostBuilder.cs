@@ -2,6 +2,6 @@
 {
     public interface IHostBuilder
     {
-        IRouteBuilder WithUrl(string url);
+        //IRouteBuilder WithUrl(string url);
     }
 }

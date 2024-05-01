@@ -1,6 +1,6 @@
 ﻿namespace HttpRequestBuilder.Builder
 {
-    public interface IOptionsBuilder :  IHttpHeaderBuilder, IRequestBuilder
+    public interface IOptionsBuilder : IHttpHeaderBuilder, IRequestContentBuilder, IRequestBuilder
     {
     }
 }

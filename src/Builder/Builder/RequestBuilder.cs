@@ -78,5 +78,7 @@ namespace HttpRequestBuilder.Builder
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

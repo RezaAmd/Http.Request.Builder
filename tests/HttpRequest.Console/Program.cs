@@ -16,22 +16,6 @@ var request = RequestBuilder.Create("https://google.com")
 var response = await request.SendAsync();
 
 
-async Task a()
-{
-    var client = new HttpClient();
-    var request = new HttpRequestMessage(HttpMethod.Get, "https://google.com");
-
-    var collection = new List<KeyValuePair<string, string>>();
-    collection.Add(new("ttt", "ooooo"));
-    var content = new FormUrlEncodedContent(collection);
-    request.Content = content;
-
-    var response = await client.SendAsync(request);
-    response.EnsureSuccessStatusCode();
-    Console.WriteLine(await response.Content.ReadAsStringAsync());
-}
-
-
 
 Console.WriteLine($"{response.StatusCode} {response.Content}");
 

@@ -20,17 +20,27 @@ namespace HttpRequestBuilder.Request
         public async Task<IHttpResponse> SendAsync()
         {
             var request = new HttpRequestMessage(HttpMethod.Get, _requestDetail.Uri.ToString());
-            var collection = new List<KeyValuePair<string, string>>();
-            collection.Add(new("ttt", "ooooo"));
-            var content = new FormUrlEncodedContent(collection);
-            request.Content = content;
+
+            // Header
+            foreach (var header in _requestDetail.Headers)
+            {
+                request.Headers.Add(header.Key, header.Value);
+            }
+            // Authorization
+            if(_requestDetail.Authentication != null)
+            request.Headers.Authorization = _requestDetail.Authentication;
+            // Content
+            if (_requestDetail.Content != null)
+                request.Content = _requestDetail.Content;
+
             var response = await _client.SendAsync(request);
+
             response.EnsureSuccessStatusCode();
             Console.WriteLine(await response.Content.ReadAsStringAsync());
 
             HttpResponse httpResponse = new();
 
-            throw new NotImplementedException();
+            return httpResponse;
         }
     }
 }

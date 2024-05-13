@@ -10,7 +10,7 @@ namespace HttpRequestBuilder.Model
         public UriBuilder Uri { get; set; } = new UriBuilder();
         public HttpMethod Method { get; set; } = HttpMethod.Get;
         public AuthenticationHeaderValue? Authentication { get; set; }
-        public Dictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
+        public IDictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
         public HttpContent? Content { get; set; }
 
         #region Ctor

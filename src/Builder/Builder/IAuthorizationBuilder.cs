@@ -1,8 +1,6 @@
 ﻿namespace HttpRequestBuilder.Builder
 {
-    public interface IAuthorizationBuilder :
-            IBearerTokenAuthBuilder,
-            IRequestBuilder
+    public interface IAuthorizationBuilder : IBearerTokenAuthBuilder, IRequestBuilder
     {
     }
 }

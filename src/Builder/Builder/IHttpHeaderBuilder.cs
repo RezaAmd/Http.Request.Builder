@@ -1,4 +1,4 @@
-﻿namespace HttpRequestBuilder.Builder
+﻿namespace Http.Request.Builder.Builder
 {
     public interface IHttpHeaderBuilder : IHeaderOption
     {

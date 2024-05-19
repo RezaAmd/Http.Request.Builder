@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Headers;
 
-namespace HttpRequestBuilder.Model
+namespace Http.Request.Builder.Model
 {
     /// <summary>
     /// Stores the data required to create the Http Client.

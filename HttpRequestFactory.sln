@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpRequestBuilder", "src\Builder\HttpRequestBuilder.csproj", "{3163FC9C-14BE-49B9-8B45-C18C331570AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Http.Request.Builder", "src\Builder\Http.Request.Builder.csproj", "{3163FC9C-14BE-49B9-8B45-C18C331570AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1D79B620-2FBF-45D8-9395-796583B6B033}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{19566E04-E9A0-4A42-B729-6FF36D58E224}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpRequest.Console", "tests\HttpRequest.Console\HttpRequest.Console.csproj", "{9FBD97D6-DF73-473D-B411-07CFFE42D6CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpRequest.Console", "tests\HttpRequest.Console\HttpRequest.Console.csproj", "{9FBD97D6-DF73-473D-B411-07CFFE42D6CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

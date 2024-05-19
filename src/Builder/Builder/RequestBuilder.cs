@@ -1,7 +1,9 @@
-﻿using System.Net.Http.Headers;
+﻿using Http.Request.Builder.Model;
+using Http.Request.Builder.Request;
+using System.Net.Http.Headers;
 using System.Text.Json;
 
-namespace HttpRequestBuilder.Builder
+namespace Http.Request.Builder.Builder
 {
     public sealed class RequestBuilder : IHostBuilder, IRouteBuilder, IOptionsBuilder, IHeaderOrBuilder
     {
@@ -9,7 +11,7 @@ namespace HttpRequestBuilder.Builder
         private RequestBuilder(string url, HttpMethod? method = null)
         {
             _httpRequestDetail = new HttpRequestDetail(url);
-            if(method is not null)
+            if (method is not null)
                 _httpRequestDetail.Method = method;
         }
 

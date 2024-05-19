@@ -1,6 +1,7 @@
-﻿using HttpRequestBuilder.Response;
+﻿using Http.Request.Builder.Model;
+using Http.Request.Builder.Response;
 
-namespace HttpRequestBuilder.Request
+namespace Http.Request.Builder.Request
 {
     internal class HttpRequest : IHttpRequest
     {
@@ -26,8 +27,8 @@ namespace HttpRequestBuilder.Request
                 request.Headers.Add(header.Key, header.Value);
             }
             // Authorization
-            if(_requestDetail.Authentication != null)
-            request.Headers.Authorization = _requestDetail.Authentication;
+            if (_requestDetail.Authentication != null)
+                request.Headers.Authorization = _requestDetail.Authentication;
             // Content
             if (_requestDetail.Content != null)
                 request.Content = _requestDetail.Content;

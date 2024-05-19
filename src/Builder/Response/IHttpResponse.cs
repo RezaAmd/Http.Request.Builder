@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace HttpRequestBuilder.Response
+namespace Http.Request.Builder.Response
 {
     public interface IHttpResponse
     {

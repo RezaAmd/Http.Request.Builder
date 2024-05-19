@@ -1,6 +1,6 @@
-﻿using HttpRequestBuilder.Response;
+﻿using Http.Request.Builder.Response;
 
-namespace HttpRequestBuilder.Request
+namespace Http.Request.Builder.Request
 {
     public interface IHttpRequest
     {

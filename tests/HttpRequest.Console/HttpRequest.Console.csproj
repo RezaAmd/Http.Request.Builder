@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Builder\HttpRequestBuilder.csproj" />
+    <ProjectReference Include="..\..\src\Builder\Http.Request.Builder.csproj" />
   </ItemGroup>
 
 </Project>

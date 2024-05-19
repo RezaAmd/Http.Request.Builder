@@ -1,6 +1,6 @@
-﻿using HttpRequestBuilder.Request;
+﻿using Http.Request.Builder.Request;
 
-namespace HttpRequestBuilder.Builder
+namespace Http.Request.Builder.Builder
 {
     public interface IRequestBuilder
     {

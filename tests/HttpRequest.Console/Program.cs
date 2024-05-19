@@ -2,15 +2,12 @@
 
 InputData inputData = new()
 {
-    Name = "Mohammad",
-    Surname = "Karimi"
+    Username = "RezaAmd",
+    Password = "123456"
 };
 
-var request = RequestBuilder.Create("https://google.com")
-    .WithBearerToken("JWT_BEARER_TOKEN")
+var request = RequestBuilder.Create("https://localhost:44383/authentication/signIn", HttpMethod.Post)
     .WithDataFromBodyAsJson(inputData)
-    .WithHeader("x-api-key", "This is an extra header")
-    .WithHeader("KEY", "VALUE")
     .Build();
 
 var response = await request.SendAsync();
@@ -21,6 +18,6 @@ Console.WriteLine($"{response.StatusCode} {response.Content}");
 
 public class InputData
 {
-    public string Name { get; set; }
-    public string Surname { get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
 }

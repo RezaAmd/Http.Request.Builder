@@ -19,8 +19,7 @@ namespace HttpRequestBuilder.Request
 
         public async Task<IHttpResponse> SendAsync()
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, _requestDetail.Uri.ToString());
-
+            var request = new HttpRequestMessage(_requestDetail.Method, _requestDetail.Uri.ToString());
             // Header
             foreach (var header in _requestDetail.Headers)
             {
@@ -32,15 +31,10 @@ namespace HttpRequestBuilder.Request
             // Content
             if (_requestDetail.Content != null)
                 request.Content = _requestDetail.Content;
-
+            // Send request.
             var response = await _client.SendAsync(request);
-
-            response.EnsureSuccessStatusCode();
-            Console.WriteLine(await response.Content.ReadAsStringAsync());
-
-            HttpResponse httpResponse = new();
-
-            return httpResponse;
+            //response.EnsureSuccessStatusCode();
+            return new HttpResponse(response.StatusCode, await response.Content.ReadAsStringAsync());
         }
     }
 }

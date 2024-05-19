@@ -1,4 +1,4 @@
-﻿using HttpRequestBuilder.Builder;
+﻿using Http.Request.Builder.Builder;
 
 InputData inputData = new()
 {
@@ -7,14 +7,13 @@ InputData inputData = new()
 };
 
 var request = RequestBuilder.Create("https://localhost:44383/authentication/signIn", HttpMethod.Post)
-    .WithDataFromBodyAsJson(inputData)
+    .WithHeader("CUSTOM_HEADER", "YOUR_API_KEY")
     .Build();
 
 var response = await request.SendAsync();
 
-
-
 Console.WriteLine($"{response.StatusCode} {response.Content}");
+
 
 public class InputData
 {

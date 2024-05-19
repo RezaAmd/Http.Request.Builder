@@ -5,7 +5,7 @@ namespace HttpRequestBuilder.Response
     public interface IHttpResponse
     {
         HttpStatusCode StatusCode { get; }
-        HttpContent Content { get; }
+        string Content { get; }
     }
 
     public interface IHttpResponse<out TSuccessValue>

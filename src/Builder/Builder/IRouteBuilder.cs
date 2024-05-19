@@ -1,6 +1,6 @@
 ﻿namespace HttpRequestBuilder.Builder
 {
-    public interface IRouteBuilder : IAuthorizationBuilder
+    public interface IRouteBuilder : IAuthorizationBuilder, IRequestContentBuilder
     {
     }
 }

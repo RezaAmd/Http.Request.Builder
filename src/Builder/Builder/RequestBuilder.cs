@@ -89,10 +89,6 @@ namespace HttpRequestBuilder.Builder
         #endregion
 
         public IHttpRequest Build()
-        {
-            HttpRequest httpRequest = new(_httpRequestDetail);
-
-            return httpRequest;
-        }
+            => new HttpRequest(_httpRequestDetail);
     }
 }

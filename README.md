@@ -24,7 +24,7 @@ Install-Package Http.Request.Builder
 ```
 
 ## Quick use:
-```
+```csharp
 // Prepare request object.
 var request = RequestBuilder.Create("YOUR_URL")
     .Build();
@@ -36,7 +36,7 @@ var response = await request.SendAsync();
 ```
 
 ## Configs
-```
+```csharp
 var request = RequestBuilder.Create("YOUR_URL")
 
     .WithBearerToken("JWT_TOKEN")             // <--- Authentication as bearer token here!

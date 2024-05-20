@@ -17,6 +17,8 @@ namespace Http.Request.Builder.Request
 
         #endregion
 
+        #region Methods
+
         private async Task<IHttpResponse> SendRequestAsync()
         {
             var request = new HttpRequestMessage(_requestDetail.Method, _requestDetail.Uri.ToString());
@@ -103,5 +105,7 @@ namespace Http.Request.Builder.Request
             var response = await SendRequestWithFailedAttemptsTryAsync();
             return new HttpResponse<TSuccessContent>(response.StatusCode, response.Content);
         }
+
+        #endregion
     }
 }

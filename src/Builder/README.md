@@ -3,7 +3,7 @@ Http request as builder pattern for easier to use.
 You can config it to try request again a few more times, if the request was failed. You can map the response in an object of class.
 
 ## Quick use:
-```
+```csharp
 // Prepare request object.
 var request = RequestBuilder.Create("YOUR_URL")
     .Build();
@@ -15,7 +15,7 @@ var response = await request.SendAsync();
 ```
 
 ## Configs
-```
+```csharp
 var request = RequestBuilder.Create("YOUR_URL")
 
     .WithBearerToken("JWT_TOKEN")             // <--- Authentication as bearer token here!

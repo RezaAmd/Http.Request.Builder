@@ -27,7 +27,6 @@ Example to use:
 ```
 // Prepare request object.
 var request = RequestBuilder.Create("YOUR_URL", HttpMethod.GET)
-    .WithHeader("CUSTOM_HEADER", "YOUR_API_KEY")
     .Build();
     
 // Send request and get response.

@@ -23,14 +23,26 @@ In .Net - [NuGet](https://www.nuget.org/packages/Http.Request.Builder):
 Install-Package Http.Request.Builder
 ```
 
-Quick use:
+## Quick use:
 ```
 // Prepare request object.
-var request = RequestBuilder.Create("YOUR_URL", HttpMethod.GET)
+var request = RequestBuilder.Create("YOUR_URL")
     .Build();
     
 // Send request and get response.
 var response = await request.SendAsync();
 
 //Console.WriteLine($"{response.StatusCode} {response.Content}");
+```
+
+## Configs
+```
+var request = RequestBuilder.Create("YOUR_URL")
+
+    .WithBearerToken("JWT_TOKEN")             // <--- Authentication as bearer token here!
+    .WithHeader("Accept", "application/json") // <--- Your custom headers!
+    .WithHeader("CUSTOM_KEY", "CUSTOM_VALUE") // <--- Your custom headers!
+    .WithRetryAttemptsForFailed(3)            //   <--- Number of retries after failure!
+
+    .Build();
 ```

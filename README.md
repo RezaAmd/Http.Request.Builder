@@ -8,6 +8,7 @@
   <p>
     <a href="https://www.nuget.org/packages/Http.Request.Builder/" target="_blank"><img src="https://img.shields.io/nuget/v/Http.Request.Builder.svg" alt="NuGet" /></a>
     <a href="https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8/overview" target="_blank"><img src="https://badgen.net/badge/.net/v8.0/purple"/></a>
+    <a href="https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8/overview" target="_blank"><img src="https://badgen.net/badge/.NetStandard/v2.1/blue"/></a>
     <a href="https://www.nuget.org/packages/Http.Request.Builder" target="_blank"><img src="https://img.shields.io/nuget/dt/Http.Request.Builder"/></a>
   </p>
   <p>An .net package for easier sending request as builder use retry pattern.</p>

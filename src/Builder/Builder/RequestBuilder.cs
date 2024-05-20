@@ -94,6 +94,12 @@ namespace Http.Request.Builder.Builder
 
         #endregion
 
+        public IHeaderOrBuilder WithRetryAttemptsForFailed(int attemptsCount = 3)
+        {
+            _httpRequestDetail.FailedAttemptsCount = Math.Clamp(attemptsCount, 1, 20);
+            return this;
+        }
+
         public IHttpRequest Build()
             => new HttpRequest(_httpRequestDetail);
     }

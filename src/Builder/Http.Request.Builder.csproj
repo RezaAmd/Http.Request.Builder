@@ -14,7 +14,7 @@
 	  <PackageProjectUrl>https://github.com/RezaAmd/Http.Request.Builder</PackageProjectUrl>
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <RepositoryUrl>https://github.com/RezaAmd/Http.Request.Builder</RepositoryUrl>
-	  <PackageTags>Http, Request, response, Builder Pattern</PackageTags>
+	  <PackageTags>Http, Request, Response, Builder Pattern</PackageTags>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>

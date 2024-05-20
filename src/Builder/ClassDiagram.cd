@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="HttpRequestBuilder.Model.HttpRequestDetail" Collapsed="true">
+  <Class Name="HttpRequestDetail" Collapsed="true">
     <Position X="2" Y="1.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAEAAACAAAAAAAAAA=</HashCode>
       <FileName>Model\HttpRequestDetail.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HttpRequestBuilder.Builder.RequestBuilder">
+  <Class Name="Http.Request.Builder.Builder.RequestBuilder">
     <Position X="11.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAIgAAAAAAAAAACQAAAgEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAIhAAAAAAAAAACQAAAgEAAAAAAAAAAAAA=</HashCode>
       <FileName>Builder\RequestBuilder.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -29,14 +29,14 @@
       <FileName>Builder\IAuthorizationBuilder.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="HttpRequestBuilder.Builder.IBearerTokenAuthBuilder">
+  <Interface Name="Http.Request.Builder.Builder.IBearerTokenAuthBuilder">
     <Position X="4.75" Y="1.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Builder\IBearerTokenAuthBuilder.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="HttpRequestBuilder.Builder.IHeaderOption">
+  <Interface Name="Http.Request.Builder.Builder.IHeaderOption">
     <Position X="6.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -50,7 +50,7 @@
       <FileName>Builder\IHeaderOrBuilder.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="HttpRequestBuilder.Builder.IHostBuilder">
+  <Interface Name="IHostBuilder">
     <Position X="2" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -71,7 +71,7 @@
       <FileName>Builder\IOptionsBuilder.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="HttpRequestBuilder.Builder.IRequestBuilder">
+  <Interface Name="Http.Request.Builder.Builder.IRequestBuilder">
     <Position X="6.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
@@ -85,10 +85,10 @@
       <FileName>Builder\IRouteBuilder.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="HttpRequestBuilder.Response.IHttpResponse">
+  <Interface Name="Http.Request.Builder.Response.IHttpResponse">
     <Position X="9.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Response\IHttpResponse.cs</FileName>
     </TypeIdentifier>
   </Interface>

@@ -1,5 +1,9 @@
-﻿using Http.Request.Builder.Response;
+﻿using Http.Request.Builder.Model;
+using Http.Request.Builder.Response;
+using System;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Http.Request.Builder.Request
 {

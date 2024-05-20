@@ -1,4 +1,7 @@
-﻿namespace Http.Request.Builder.Builder
+﻿using System;
+using System.Collections.Generic;
+
+namespace Http.Request.Builder.Builder
 {
     public interface IHeaderOption
     {

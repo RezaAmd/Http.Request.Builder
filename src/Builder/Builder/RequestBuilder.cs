@@ -1,5 +1,9 @@
-﻿using Http.Request.Builder.Model;
+﻿using Http.Request.Builder.Exceptions;
+using Http.Request.Builder.Model;
 using Http.Request.Builder.Request;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
@@ -11,7 +15,7 @@ namespace Http.Request.Builder.Builder
         private RequestBuilder(string url, HttpMethod? method = null)
         {
             _httpRequestDetail = new HttpRequestDetail(url);
-            if (method is not null)
+            if (method != null)
                 _httpRequestDetail.Method = method;
         }
 

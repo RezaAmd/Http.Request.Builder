@@ -1,4 +1,6 @@
-﻿namespace Http.Request.Builder.Exceptions
+﻿using System;
+
+namespace Http.Request.Builder.Exceptions
 {
     public class HttpRequestBuilderException : Exception
     {

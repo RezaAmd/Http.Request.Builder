@@ -1,4 +1,7 @@
-﻿using System.Net.Http.Headers;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Http.Request.Builder.Model
 {

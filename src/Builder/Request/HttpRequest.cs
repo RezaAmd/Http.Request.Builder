@@ -13,6 +13,8 @@ namespace Http.Request.Builder.Request
 
         private readonly HttpRequestDetail _requestDetail;
         private readonly HttpClient _client = new HttpClient();
+        private int attemptDelayPerSecond = 1;
+        private byte attemptsCount = 0;
 
         public HttpRequest(HttpRequestDetail requestDetail)
         {
@@ -43,8 +45,10 @@ namespace Http.Request.Builder.Request
             return new HttpResponse(response.StatusCode, await response.Content.ReadAsStringAsync());
 
         }
+
         private async Task<IHttpResponse> SendRequestWithFailedAttemptsTryAsync()
-        {            // Send request
+        {
+            // Send request
             var response = await SendRequestAsync();
 
             if (IsNeedToTryAgain(response.StatusCode) == false)
@@ -53,12 +57,10 @@ namespace Http.Request.Builder.Request
             if (_requestDetail.FailedAttemptsCount <= 0)
                 return response;
 
-            int attemptsDelay = 3 * 1000;
             // Try to send request again.
-            for (byte tryCpont = 0; tryCpont < Math.Clamp(_requestDetail.FailedAttemptsCount, 1, 10); tryCpont++)
+            for (attemptsCount = 0; attemptsCount < Math.Clamp(_requestDetail.FailedAttemptsCount, 1, 10); attemptsCount++)
             {
-                // Wait for 1s.
-                await Task.Delay(attemptsDelay);
+                await HandleDelayOfAttemptsByStatusCode(response.StatusCode);
                 // Send request.
                 response = await SendRequestAsync();
                 if (!IsNeedToTryAgain(response.StatusCode))
@@ -67,6 +69,48 @@ namespace Http.Request.Builder.Request
 
             return response;
         }
+
+        private async Task HandleDelayOfAttemptsByStatusCode(HttpStatusCode statusCode)
+        {
+            // Determining of delay
+            DeterminingDelayByStatusCodeAndFailedAttemptsCount(statusCode);
+            await Task.Delay(attemptDelayPerSecond * 1000);
+        }
+
+        private void DeterminingDelayByStatusCodeAndFailedAttemptsCount(HttpStatusCode statusCode)
+        {
+            switch (statusCode)
+            {
+                case HttpStatusCode.TooManyRequests:
+                    attemptDelayPerSecond = 1;
+                    if (attemptsCount > 5)
+                        attemptDelayPerSecond = 5;
+                    else if (attemptsCount > 2)
+                        attemptDelayPerSecond = 2;
+                    break;
+                case HttpStatusCode.InternalServerError:
+                case HttpStatusCode.NotImplemented:
+                case HttpStatusCode.BadGateway:
+                case HttpStatusCode.ServiceUnavailable:
+                case HttpStatusCode.GatewayTimeout:
+                case HttpStatusCode.HttpVersionNotSupported:
+                case HttpStatusCode.VariantAlsoNegotiates:
+                case HttpStatusCode.InsufficientStorage:
+                case HttpStatusCode.LoopDetected:
+                case HttpStatusCode.NotExtended:
+                case HttpStatusCode.NetworkAuthenticationRequired:
+                    attemptDelayPerSecond = 1;
+                    if (attemptsCount > 5)
+                        attemptDelayPerSecond = 5;
+                    else if (attemptsCount > 1)
+                        attemptDelayPerSecond = 3;
+                    break;
+                default:
+                    attemptDelayPerSecond = 1;
+                    break;
+            }
+        }
+
         private bool IsNeedToTryAgain(HttpStatusCode statusCode)
         {
             switch (statusCode)

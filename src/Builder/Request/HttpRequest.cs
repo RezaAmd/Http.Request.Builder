@@ -83,10 +83,10 @@ namespace Http.Request.Builder.Request
             {
                 case HttpStatusCode.TooManyRequests:
                     attemptDelayPerSecond = 1;
-                    if (attemptsCount > 5)
+                    if (attemptsCount > 3)
+                        attemptDelayPerSecond = 3;
+                    if (attemptsCount > 6)
                         attemptDelayPerSecond = 5;
-                    else if (attemptsCount > 2)
-                        attemptDelayPerSecond = 2;
                     break;
                 case HttpStatusCode.InternalServerError:
                 case HttpStatusCode.NotImplemented:
@@ -100,9 +100,9 @@ namespace Http.Request.Builder.Request
                 case HttpStatusCode.NotExtended:
                 case HttpStatusCode.NetworkAuthenticationRequired:
                     attemptDelayPerSecond = 1;
-                    if (attemptsCount > 5)
+                    if (attemptsCount > 6)
                         attemptDelayPerSecond = 5;
-                    else if (attemptsCount > 1)
+                    else if (attemptsCount > 3)
                         attemptDelayPerSecond = 3;
                     break;
                 default:

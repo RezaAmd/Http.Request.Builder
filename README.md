@@ -13,12 +13,11 @@
   <p>An .net package for easier sending request as builder use retry pattern.</p>
 </div>
 
-# Http Request Builder
 Http request as builder pattern for easier to use.
 You can config it to try request again a few more times, if the request was failed. You can map the response in an object of class.
 
 ## How to install?
-In .Net Core - [NuGet](https://www.nuget.org/packages/Http.Request.Builder):
+In .Net - [NuGet](https://www.nuget.org/packages/Http.Request.Builder):
 ```
 Install-Package Http.Request.Builder
 ```

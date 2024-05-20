@@ -2,15 +2,18 @@
 
 namespace Http.Request.Builder.Response
 {
-    public interface IHttpResponse
+    public interface IBaseHttpResponse
     {
         HttpStatusCode StatusCode { get; }
+    }
+    public interface IHttpResponse : IBaseHttpResponse
+    {
         string Content { get; }
     }
 
-    public interface IHttpResponse<out TSuccessValue>
-        : IHttpResponse where TSuccessValue : class
+    public interface IHttpResponse<out TSuccessContent>
+        : IBaseHttpResponse where TSuccessContent : class
     {
-        TSuccessValue? Value { get; }
+        TSuccessContent? Content { get; }
     }
 }

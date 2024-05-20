@@ -1,0 +1,20 @@
+{
+  "name": "Http.Request.Builder",
+  "version": "8.0.5",
+  "description": "Http request as builder pattern for easier to use. You can config it to try request again a few more times, if the request was failed. You can map the response in an object of class.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RezaAmd/Http.Request.Builder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RezaAmd/Http.Request.Builder/issues"
+  },
+  "homepage": "https://github.com/RezaAmd/Http.Request.Builder#readme"
+}

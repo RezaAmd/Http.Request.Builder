@@ -3,6 +3,7 @@ using Http.Request.Builder.Response;
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Http.Request.Builder.Request
@@ -25,7 +26,7 @@ namespace Http.Request.Builder.Request
 
         #region Methods
 
-        private async Task<IHttpResponse> SendRequestAsync()
+        private async Task<IHttpResponse> SendRequestAsync(CancellationToken cancellationToken = default)
         {
             var request = new HttpRequestMessage(_requestDetail.Method, _requestDetail.Uri.ToString());
             // Header
@@ -40,16 +41,16 @@ namespace Http.Request.Builder.Request
             if (_requestDetail.Content != null)
                 request.Content = _requestDetail.Content;
             // Send request.
-            var response = await _client.SendAsync(request);
+            var response = await _client.SendAsync(request, cancellationToken);
             //response.EnsureSuccessStatusCode();
             return new HttpResponse(response.StatusCode, await response.Content.ReadAsStringAsync());
 
         }
 
-        private async Task<IHttpResponse> SendRequestWithFailedAttemptsTryAsync()
+        private async Task<IHttpResponse> SendRequestWithFailedAttemptsTryAsync(CancellationToken cancellationToken = default)
         {
             // Send request
-            var response = await SendRequestAsync();
+            var response = await SendRequestAsync(cancellationToken);
 
             if (IsNeedToTryAgain(response.StatusCode) == false)
                 return response;
@@ -62,7 +63,7 @@ namespace Http.Request.Builder.Request
             {
                 await HandleDelayOfAttemptsByStatusCode(response.StatusCode);
                 // Send request.
-                response = await SendRequestAsync();
+                response = await SendRequestAsync(cancellationToken);
                 if (!IsNeedToTryAgain(response.StatusCode))
                     return response;
             }
@@ -137,20 +138,20 @@ namespace Http.Request.Builder.Request
         /// Send request async with try on failed.
         /// </summary>
         /// <returns>Http response</returns>
-        public async Task<IHttpResponse> SendAsync()
+        public async Task<IHttpResponse> SendAsync(CancellationToken cancellationToken = default)
         {
             // Send request with try on failed.
-            return await SendRequestWithFailedAttemptsTryAsync();
+            return await SendRequestWithFailedAttemptsTryAsync(cancellationToken);
         }
 
         /// <summary>
         /// Send request async with try on failed. Map response content to Generic class type.
         /// </summary>
         /// <typeparam name="TSuccessContent">Type of content when request was succeded.</typeparam>
-        public async Task<IHttpResponse<TSuccessContent>?> SendAsync<TSuccessContent>()
+        public async Task<IHttpResponse<TSuccessContent>?> SendAsync<TSuccessContent>(CancellationToken cancellationToken = default)
             where TSuccessContent : class
         {
-            var response = await SendRequestWithFailedAttemptsTryAsync();
+            var response = await SendRequestWithFailedAttemptsTryAsync(cancellationToken);
             return new HttpResponse<TSuccessContent>(response.StatusCode, response.Content);
         }
 

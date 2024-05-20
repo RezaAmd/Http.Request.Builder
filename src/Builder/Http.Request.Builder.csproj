@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1;netcoreapp3.0;net6.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.1;netcoreapp2.2;netcoreapp3.0;net6.0;net8.0</TargetFrameworks>
 		<Nullable>enable</Nullable>
 		<Title>Http Request Builder</Title>
 		<Authors>Reza Ahmadi</Authors>
-		<Version>8.0.8</Version>
+		<Version>8.0.9</Version>
 		<Description>
 			Http request as builder pattern for easier to use.
 			You can send request and deserialize response of request.

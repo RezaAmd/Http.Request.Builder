@@ -14,6 +14,6 @@ namespace Http.Request.Builder.Response
     public interface IHttpResponse<out TSuccessContent>
         : IBaseHttpResponse where TSuccessContent : class
     {
-        TSuccessContent? Content { get; }
+        TSuccessContent Content { get; }
     }
 }

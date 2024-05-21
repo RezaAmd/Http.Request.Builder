@@ -1,5 +1,5 @@
-﻿using System.Net;
-using System.Text.Json;
+﻿using Newtonsoft.Json;
+using System.Net;
 
 namespace Http.Request.Builder.Response
 {
@@ -36,7 +36,7 @@ namespace Http.Request.Builder.Response
 
     public class HttpResponse<TSuccessContent> : BaseHttpResponse, IHttpResponse<TSuccessContent> where TSuccessContent : class
     {
-        public TSuccessContent? Content { get; private set; } = default;
+        public TSuccessContent Content { get; private set; } = default;
 
         #region Ctor
 
@@ -56,9 +56,9 @@ namespace Http.Request.Builder.Response
 
         #region Methods
 
-        private TSuccessContent? DeserializeToTSuccess(string content)
+        private TSuccessContent DeserializeToTSuccess(string content)
         {
-            return JsonSerializer.Deserialize<TSuccessContent>(content);
+            return JsonConvert.DeserializeObject<TSuccessContent>(content);
         }
 
         #endregion
@@ -66,7 +66,7 @@ namespace Http.Request.Builder.Response
         #region Implicit
 
         public static implicit operator HttpResponse(HttpResponse<TSuccessContent> response)
-            => new HttpResponse(response.StatusCode, JsonSerializer.Serialize(response.Content));
+            => new HttpResponse(response.StatusCode, JsonConvert.SerializeObject(response.Content));
 
         public static implicit operator HttpResponse<TSuccessContent>(HttpResponse response)
             => new HttpResponse<TSuccessContent>(response.StatusCode, response.Content);

@@ -5,14 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace Http.Request.Builder.Builder
 {
     public sealed class RequestBuilder : IHostBuilder, IRouteBuilder, IOptionsBuilder, IHeaderOrBuilder
     {
         private readonly HttpRequestDetail _httpRequestDetail;
-        private RequestBuilder(string url, HttpMethod? method = null)
+        private RequestBuilder(string url, HttpMethod method = null)
         {
             _httpRequestDetail = new HttpRequestDetail(url);
             if (method != null)
@@ -23,7 +23,7 @@ namespace Http.Request.Builder.Builder
         /// Create new instance of RequestBuilder.
         /// </summary>
         /// <returns>RequestBuilder instance object.</returns>
-        public static IRouteBuilder Create(string url, HttpMethod? method = null)
+        public static IRouteBuilder Create(string url, HttpMethod method = null)
             => new RequestBuilder(url, method);
 
         #region URI & Authorization
@@ -88,7 +88,7 @@ namespace Http.Request.Builder.Builder
 
         public IHeaderOrBuilder WithDataFromBodyAsJson<TData>(TData data)
         {
-            _httpRequestDetail.Content = new StringContent(JsonSerializer.Serialize(data), null, "application/json");
+            _httpRequestDetail.Content = new StringContent(JsonConvert.SerializeObject(data), null, "application/json");
             return this;
         }
 

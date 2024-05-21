@@ -148,7 +148,7 @@ namespace Http.Request.Builder.Request
         /// Send request async with try on failed. Map response content to Generic class type.
         /// </summary>
         /// <typeparam name="TSuccessContent">Type of content when request was succeded.</typeparam>
-        public async Task<IHttpResponse<TSuccessContent>?> SendAsync<TSuccessContent>(CancellationToken cancellationToken = default)
+        public async Task<IHttpResponse<TSuccessContent>> SendAsync<TSuccessContent>(CancellationToken cancellationToken = default)
             where TSuccessContent : class
         {
             var response = await SendRequestWithFailedAttemptsTryAsync(cancellationToken);

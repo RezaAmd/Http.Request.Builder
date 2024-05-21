@@ -12,9 +12,9 @@ namespace Http.Request.Builder.Model
     {
         public UriBuilder Uri { get; set; } = new UriBuilder();
         public HttpMethod Method { get; set; } = HttpMethod.Get;
-        public AuthenticationHeaderValue? Authentication { get; set; }
+        public AuthenticationHeaderValue Authentication { get; set; }
         public IDictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
-        public HttpContent? Content { get; set; }
+        public HttpContent Content { get; set; }
         public int FailedAttemptsCount { get; set; } = 0;
 
         #region Ctor

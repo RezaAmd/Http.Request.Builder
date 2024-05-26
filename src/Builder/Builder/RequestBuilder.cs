@@ -71,6 +71,7 @@ namespace Http.Request.Builder.Builder
             {
                 content.Add(new StringContent(_data.Key), _data.Value);
             }
+            _httpRequestDetail.Content = content;
             return this;
         }
 

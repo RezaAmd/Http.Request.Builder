@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using System.ComponentModel;
+using Http.Request.Builder.Extensions;
 
 namespace Http.Request.Builder.Builder
 {
@@ -63,6 +65,34 @@ namespace Http.Request.Builder.Builder
         #endregion
 
         #region Body Content
+
+        public IHeaderOrBuilder WithContentAsFormData<TData>(TData form)
+        {
+            var content = new MultipartFormDataContent();
+
+            foreach (var prop in typeof(TData).GetProperties())
+            {
+                // get properties we can read and write to
+                if (!prop.CanRead || !prop.CanWrite)
+                    continue;
+                if (!TypeDescriptor.GetConverter(prop.PropertyType)
+                    .CanConvertFrom(typeof(string)))
+                    continue;
+                var key = prop.GetJsonPropertyValue();
+                if (string.IsNullOrEmpty(key))
+                    key = prop.Name;
+                var value = prop.GetValue(form, null);
+                string valueString = (value != null ?
+                        TypeDescriptor.GetConverter(prop.PropertyType)
+                        .ConvertToInvariantString(value) :
+                        string.Empty);
+
+                content.Add(new StringContent(valueString), key);
+            }
+
+            _httpRequestDetail.Content = content;
+            return this;
+        }
 
         public IHeaderOrBuilder WithContentAsFormData(IList<KeyValuePair<string, string>> form)
         {

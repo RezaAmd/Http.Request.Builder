@@ -7,8 +7,10 @@ namespace Http.Request.Builder.Builder
         /// <summary>
         /// Set form data in request content.
         /// </summary>
-        /// <param name="data">Content data as key value pair.</param>
+        /// <param name="form">Content data as key value pair.</param>
         IHeaderOrBuilder WithContentAsFormData(IList<KeyValuePair<string, string>> form);
+
+        IHeaderOrBuilder WithContentAsFormData<TData>(TData form);
 
         /// <summary>
         /// Set x-www-form-urlencoded in request content.

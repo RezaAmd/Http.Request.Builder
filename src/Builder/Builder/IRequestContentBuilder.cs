@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Net.Http;
 
 namespace Http.Request.Builder.Builder
 {
     public interface IRequestContentBuilder
     {
+        IHeaderOrBuilder WithHttpContent(HttpContent content);
+
         /// <summary>
         /// Set form data in request content.
         /// </summary>

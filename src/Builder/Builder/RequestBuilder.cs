@@ -66,6 +66,12 @@ namespace Http.Request.Builder.Builder
 
         #region Body Content
 
+        public IHeaderOrBuilder WithHttpContent(HttpContent content)
+        {
+            _httpRequestDetail.Content = content;
+            return this;
+        }
+
         public IHeaderOrBuilder WithContentAsFormData<TData>(TData form)
         {
             var content = new MultipartFormDataContent();

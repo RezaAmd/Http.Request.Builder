@@ -11,6 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpRequest.Console", "test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Http.Request.Builder", "src\Builder\Http.Request.Builder.csproj", "{6BDE29A3-6269-4410-8AFB-184203CEAC55}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{9A5039F8-832F-4EE5-9CE5-31D99AA420C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logo", "logo", "{5D41A944-D5AA-4618-9F4B-E453DDD9E317}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Reza\Desktop\gradient_128x128.png = C:\Users\Reza\Desktop\gradient_128x128.png
+		C:\Users\Reza\Desktop\gradient_32x32.png = C:\Users\Reza\Desktop\gradient_32x32.png
+		C:\Users\Reza\Desktop\gradient_64x64.png = C:\Users\Reza\Desktop\gradient_64x64.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +41,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9FBD97D6-DF73-473D-B411-07CFFE42D6CF} = {19566E04-E9A0-4A42-B729-6FF36D58E224}
 		{6BDE29A3-6269-4410-8AFB-184203CEAC55} = {1D79B620-2FBF-45D8-9395-796583B6B033}
+		{5D41A944-D5AA-4618-9F4B-E453DDD9E317} = {9A5039F8-832F-4EE5-9CE5-31D99AA420C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B84C083D-1275-4968-9AA2-49D34A7E12D2}

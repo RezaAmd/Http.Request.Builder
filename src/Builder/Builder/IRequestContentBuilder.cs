@@ -1,14 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.Net.Http;
 
 namespace Http.Request.Builder.Builder
 {
     public interface IRequestContentBuilder
     {
+        IHeaderOrBuilder WithHttpContent(HttpContent content);
+
         /// <summary>
         /// Set form data in request content.
         /// </summary>
         /// <param name="data">Content data as key value pair.</param>
         IHeaderOrBuilder WithContentAsFormData(IList<KeyValuePair<string, string>> form);
+
+        IHeaderOrBuilder WithContentAsFormData<TData>(TData form);
 
         /// <summary>
         /// Set x-www-form-urlencoded in request content.

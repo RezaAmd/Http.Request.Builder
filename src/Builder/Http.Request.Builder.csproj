@@ -16,6 +16,7 @@ You can send request and deserialize response of request.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<ApplicationIcon>icon.ico</ApplicationIcon>
 
 	</PropertyGroup>
 

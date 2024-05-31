@@ -19,14 +19,13 @@
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>gradient_128x128.png</PackageIcon>
-
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\..\assets\logo\gradient_128x128.png" Pack="true" PackagePath="\" />
-	</ItemGroup>
-
-	<ItemGroup>
+		<None Include="..\..\assets\logo\gradient_128x128.png">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
 		<None Include="README.md">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>

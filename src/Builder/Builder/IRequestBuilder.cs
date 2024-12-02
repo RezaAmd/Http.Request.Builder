@@ -23,7 +23,7 @@ namespace Http.Request.Builder.Builder
         /// If no action is provided, default retry attempt settings will be used.
         /// </param>
         /// <returns></returns>
-        IHeaderOrBuilder WithRetryAttemptsForFailed(Action<FailedRetryAttemptOptionsModel>? options = null);
+        IHeaderOrBuilder WithRetryAttemptsForFailed(Action<FailedRetryAttemptOptionsModel>? options);
 
         /// <summary>
         /// Build a new http request.

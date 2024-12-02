@@ -11,7 +11,7 @@
 			You can send request and deserialize response of request.
 		</Description>
 		<Copyright>Copyright Reza Ahmadi</Copyright>
-		<PackageProjectUrl>https://github.com/RezaAmd/Http.Request.Builder</PackageProjectUrl>
+		<PackageProjectUrl>https://www.nuget.org/packages/Http.Request.Builder</PackageProjectUrl>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<RepositoryUrl>https://github.com/RezaAmd/Http.Request.Builder</RepositoryUrl>
 		<PackageTags>Http, Request, Response, Builder Pattern</PackageTags>

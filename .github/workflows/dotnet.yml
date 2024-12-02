@@ -37,5 +37,5 @@ jobs:
           dotnet-version: '6.0'
 
       - name: Push NuGet Package
-        run: dotnet nuget push bin/Release/Http.Request.Builder.8.0.12.nupkg --source "https://nuget.pkg.github.com/RezaAmd/index.json" --api-key ${{ secrets.GITHUB_PAT }}
+        run: dotnet nuget push bin/Release/*.nupkg --source "https://nuget.pkg.github.com/RezaAmd/index.json" --api-key ${{ secrets.GITHUB_PAT }}
 

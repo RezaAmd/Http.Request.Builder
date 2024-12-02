@@ -1,5 +1,4 @@
 ﻿using Http.Request.Builder.Request;
-using System.Net.Http;
 
 namespace Http.Request.Builder.Builder
 {
@@ -17,11 +16,5 @@ namespace Http.Request.Builder.Builder
         /// </summary>
         /// <returns></returns>
         IHttpRequest Build();
-
-        /// <summary>
-        /// Build a new http request.
-        /// </summary>
-        /// <returns></returns>
-        IHttpRequest Build(HttpClient httpClient);
     }
 }

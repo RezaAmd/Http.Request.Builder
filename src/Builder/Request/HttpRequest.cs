@@ -10,22 +10,14 @@ namespace Http.Request.Builder.Request
 {
     internal class HttpRequest : IHttpRequest
     {
-        #region Ctor
+        #region Fields & Constructor
 
         private readonly HttpRequestDetail _requestDetail;
-        private readonly HttpClient _client = new HttpClient();
         private int attemptDelayPerSecond = 1;
         private byte attemptsCount = 0;
-
         public HttpRequest(HttpRequestDetail requestDetail)
         {
             _requestDetail = requestDetail;
-        }
-
-        public HttpRequest(HttpRequestDetail requestDetail, HttpClient httpClient)
-        {
-            _requestDetail = requestDetail;
-            _client = httpClient;
         }
 
         #endregion
@@ -47,7 +39,7 @@ namespace Http.Request.Builder.Request
             if (_requestDetail.Content != null)
                 request.Content = _requestDetail.Content;
             // Send request.
-            var response = await _client.SendAsync(request, cancellationToken);
+            var response = await _requestDetail.HttpClient.SendAsync(request, cancellationToken);
             //response.EnsureSuccessStatusCode();
             return new HttpResponse(response.StatusCode, await response.Content.ReadAsStringAsync(cancellationToken));
 

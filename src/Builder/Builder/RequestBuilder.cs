@@ -14,18 +14,20 @@ namespace Http.Request.Builder.Builder
     public sealed class RequestBuilder : IHostBuilder, IRouteBuilder, IOptionsBuilder, IHeaderOrBuilder
     {
         private readonly HttpRequestDetail _httpRequestDetail;
-        private RequestBuilder(string url, HttpMethod? method = null)
+        private RequestBuilder(string url, HttpMethod? method = null, HttpClient? httpClient = null)
         {
             _httpRequestDetail = new HttpRequestDetail(url);
             if (method != null)
                 _httpRequestDetail.Method = method;
+            if(httpClient != null)
+                _httpRequestDetail.HttpClient = httpClient;
         }
 
         /// <summary>
         /// Create new instance of RequestBuilder.
         /// </summary>
         /// <returns>RequestBuilder instance object.</returns>
-        public static IRouteBuilder Create(string url, HttpMethod? method = null)
+        public static IRouteBuilder Create(string url, HttpMethod? method = null, HttpClient? httpClient = null)
             => new RequestBuilder(url, method);
 
         #region URI & Authorization
@@ -137,8 +139,5 @@ namespace Http.Request.Builder.Builder
 
         public IHttpRequest Build()
             => new HttpRequest(_httpRequestDetail);
-
-        public IHttpRequest Build(HttpClient httpClient)
-            => new HttpRequest(_httpRequestDetail, httpClient);
     }
 }

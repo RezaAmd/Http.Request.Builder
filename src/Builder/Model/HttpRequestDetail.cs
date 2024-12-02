@@ -10,6 +10,7 @@ namespace Http.Request.Builder.Model
     /// </summary>
     internal class HttpRequestDetail
     {
+        public HttpClient HttpClient { get; set; } = new HttpClient();
         public UriBuilder Uri { get; set; } = new UriBuilder();
         public HttpMethod Method { get; set; } = HttpMethod.Get;
         public AuthenticationHeaderValue? Authentication { get; set; }

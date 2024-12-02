@@ -22,6 +22,12 @@ namespace Http.Request.Builder.Request
             _requestDetail = requestDetail;
         }
 
+        public HttpRequest(HttpRequestDetail requestDetail, HttpClient httpClient)
+        {
+            _requestDetail = requestDetail;
+            _client = httpClient;
+        }
+
         #endregion
 
         #region Methods
@@ -43,7 +49,7 @@ namespace Http.Request.Builder.Request
             // Send request.
             var response = await _client.SendAsync(request, cancellationToken);
             //response.EnsureSuccessStatusCode();
-            return new HttpResponse(response.StatusCode, await response.Content.ReadAsStringAsync());
+            return new HttpResponse(response.StatusCode, await response.Content.ReadAsStringAsync(cancellationToken));
 
         }
 

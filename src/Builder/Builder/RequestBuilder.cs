@@ -124,8 +124,7 @@ namespace Http.Request.Builder.Builder
 
         public IHeaderOrBuilder WithDataFromBodyAsJson<TData>(TData data)
         {
-            _httpRequestDetail.Content = new StringContent(JsonSerializer.Serialize(data), null, "application/json");
-            return this;
+            return WithContentAsRaw(JsonSerializer.Serialize(data));
         }
 
         #endregion
@@ -138,5 +137,8 @@ namespace Http.Request.Builder.Builder
 
         public IHttpRequest Build()
             => new HttpRequest(_httpRequestDetail);
+
+        public IHttpRequest Build(HttpClient httpClient)
+            => new HttpRequest(_httpRequestDetail, httpClient);
     }
 }

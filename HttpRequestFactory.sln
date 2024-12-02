@@ -20,6 +20,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logo", "logo", "{3FCB3ACB-5
 		assets\logo\gradient_64x64.png = assets\logo\gradient_64x64.png
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "tests\WebApi\WebApi.csproj", "{ED9922E0-F812-475A-98E5-F06897779E87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F619BD9A-B21A-45E7-8A5C-A1BA90349EBA}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +43,10 @@ Global
 		{6BDE29A3-6269-4410-8AFB-184203CEAC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BDE29A3-6269-4410-8AFB-184203CEAC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BDE29A3-6269-4410-8AFB-184203CEAC55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED9922E0-F812-475A-98E5-F06897779E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED9922E0-F812-475A-98E5-F06897779E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED9922E0-F812-475A-98E5-F06897779E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED9922E0-F812-475A-98E5-F06897779E87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +55,7 @@ Global
 		{9FBD97D6-DF73-473D-B411-07CFFE42D6CF} = {19566E04-E9A0-4A42-B729-6FF36D58E224}
 		{6BDE29A3-6269-4410-8AFB-184203CEAC55} = {1D79B620-2FBF-45D8-9395-796583B6B033}
 		{3FCB3ACB-5449-4BE9-8AE1-D3889353851C} = {BA862841-1116-43B0-A886-E73809921F87}
+		{ED9922E0-F812-475A-98E5-F06897779E87} = {19566E04-E9A0-4A42-B729-6FF36D58E224}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B84C083D-1275-4968-9AA2-49D34A7E12D2}

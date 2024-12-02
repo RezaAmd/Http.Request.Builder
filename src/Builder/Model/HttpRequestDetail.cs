@@ -16,7 +16,9 @@ namespace Http.Request.Builder.Model
         public AuthenticationHeaderValue? Authentication { get; set; }
         public IDictionary<string, string> Headers { get; set; } = new Dictionary<string, string>();
         public HttpContent? Content { get; set; }
-        public int FailedAttemptsCount { get; set; } = 0;
+
+        public bool isTryForFailEnabled { get; set; } = false;
+        public FailedRetryAttemptOptionsModel FailedAttemptsOptions { get; set; } = new();
 
         #region Ctor
 

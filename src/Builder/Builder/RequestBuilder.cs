@@ -133,7 +133,23 @@ namespace Http.Request.Builder.Builder
 
         public IHeaderOrBuilder WithRetryAttemptsForFailed(int attemptsCount = 3)
         {
-            _httpRequestDetail.FailedAttemptsCount = Math.Clamp(attemptsCount, 1, 20);
+            _httpRequestDetail.FailedAttemptsOptions.MaxRetries = Math.Clamp(attemptsCount, 1, 20);
+
+            return this;
+        }
+
+        public IHeaderOrBuilder WithRetryAttemptsForFailed(Action<FailedRetryAttemptOptionsModel>? options = null)
+        {
+            _httpRequestDetail.isTryForFailEnabled = true;
+
+            // Initialize a default instance
+            var retryOptions = new FailedRetryAttemptOptionsModel();
+
+            // If options is not null, invoke it to configure the retryOptions
+            options?.Invoke(retryOptions);
+
+            _httpRequestDetail.FailedAttemptsOptions = retryOptions;
+
             return this;
         }
 

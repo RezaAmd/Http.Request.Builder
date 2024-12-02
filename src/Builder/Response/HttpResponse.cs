@@ -21,13 +21,15 @@ namespace Http.Request.Builder.Response
     public class HttpResponse : BaseHttpResponse, IHttpResponse
     {
         public string Content { get; }
+        public int FailedAttemptsCount { get; } = 0;
 
         #region Ctor
 
-        public HttpResponse(HttpStatusCode statusCode, string content)
+        public HttpResponse(HttpStatusCode statusCode, string content, int failedAttemptsCount = 0)
             : base(statusCode)
         {
             Content = content;
+            FailedAttemptsCount = failedAttemptsCount;
         }
 
         #endregion

@@ -13,8 +13,7 @@ namespace Http.Request.Builder.Request
         #region Fields & Constructor
 
         private readonly HttpRequestDetail _requestDetail;
-        private int attemptDelayPerSecond = 1;
-        private byte attemptsCount = 0;
+        public int FailedAttemptsCount { get; private set; } = 0;
         public HttpRequest(HttpRequestDetail requestDetail)
         {
             _requestDetail = requestDetail;
@@ -41,7 +40,7 @@ namespace Http.Request.Builder.Request
             // Send request.
             var response = await _requestDetail.HttpClient.SendAsync(request, cancellationToken);
             //response.EnsureSuccessStatusCode();
-            return new HttpResponse(response.StatusCode, await response.Content.ReadAsStringAsync(cancellationToken));
+            return new HttpResponse(response.StatusCode, await response.Content.ReadAsStringAsync(cancellationToken), FailedAttemptsCount);
 
         }
 
@@ -50,64 +49,26 @@ namespace Http.Request.Builder.Request
             // Send request
             var response = await SendRequestAsync(cancellationToken);
 
-            if (IsNeedToTryAgain(response.StatusCode) == false)
+            if (IsNeedToTryAgain(response.StatusCode) == false || _requestDetail.isTryForFailEnabled == false)
                 return response;
 
-            if (_requestDetail.FailedAttemptsCount <= 0)
+            if (_requestDetail.FailedAttemptsOptions.MaxRetries <= 0)
                 return response;
 
             // Try to send request again.
-            for (attemptsCount = 0; attemptsCount < Math.Clamp(_requestDetail.FailedAttemptsCount, 1, 10); attemptsCount++)
+            for (FailedAttemptsCount = 0; FailedAttemptsCount <= _requestDetail.FailedAttemptsOptions.MaxRetries; FailedAttemptsCount++)
             {
-                await HandleDelayOfAttemptsByStatusCode(response.StatusCode);
+                // Wait for delay.
+                await Task.Delay(_requestDetail.FailedAttemptsOptions.Delay);
+
                 // Send request.
                 response = await SendRequestAsync(cancellationToken);
+
                 if (!IsNeedToTryAgain(response.StatusCode))
                     return response;
             }
 
             return response;
-        }
-
-        private async Task HandleDelayOfAttemptsByStatusCode(HttpStatusCode statusCode)
-        {
-            // Determining of delay
-            DeterminingDelayByStatusCodeAndFailedAttemptsCount(statusCode);
-            await Task.Delay(attemptDelayPerSecond * 1000);
-        }
-
-        private void DeterminingDelayByStatusCodeAndFailedAttemptsCount(HttpStatusCode statusCode)
-        {
-            switch (statusCode)
-            {
-                case HttpStatusCode.TooManyRequests:
-                    attemptDelayPerSecond = 1;
-                    if (attemptsCount > 3)
-                        attemptDelayPerSecond = 3;
-                    if (attemptsCount > 6)
-                        attemptDelayPerSecond = 5;
-                    break;
-                case HttpStatusCode.InternalServerError:
-                case HttpStatusCode.NotImplemented:
-                case HttpStatusCode.BadGateway:
-                case HttpStatusCode.ServiceUnavailable:
-                case HttpStatusCode.GatewayTimeout:
-                case HttpStatusCode.HttpVersionNotSupported:
-                case HttpStatusCode.VariantAlsoNegotiates:
-                case HttpStatusCode.InsufficientStorage:
-                case HttpStatusCode.LoopDetected:
-                case HttpStatusCode.NotExtended:
-                case HttpStatusCode.NetworkAuthenticationRequired:
-                    attemptDelayPerSecond = 1;
-                    if (attemptsCount > 6)
-                        attemptDelayPerSecond = 5;
-                    else if (attemptsCount > 3)
-                        attemptDelayPerSecond = 3;
-                    break;
-                default:
-                    attemptDelayPerSecond = 1;
-                    break;
-            }
         }
 
         private bool IsNeedToTryAgain(HttpStatusCode statusCode)

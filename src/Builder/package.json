@@ -1,6 +1,6 @@
 {
   "name": "Http.Request.Builder",
-  "version": "8.0.10",
+  "version": "8.0.11",
   "description": "Http request as builder pattern for easier to use. You can config it to try request again a few more times, if the request was failed. You can map the response in an object of class.",
   "main": "index.js",
   "scripts": {

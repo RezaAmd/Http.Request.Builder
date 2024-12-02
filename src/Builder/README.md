@@ -33,4 +33,3 @@ var httpClient = new HttpClient();
 var request = RequestBuilder.Create("YOUR_URL")
     .Build(httpClient);
 ```
-```

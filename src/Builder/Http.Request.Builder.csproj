@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<Title>Http Request Builder</Title>
 		<Authors>Reza Ahmadi</Authors>
-		<Version>8.0.11</Version>
+		<Version>8.0.12</Version>
 		<Description>
 			Http request as builder pattern for easier to use.
 			You can send request and deserialize response of request.

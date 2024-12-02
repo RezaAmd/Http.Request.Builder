@@ -17,19 +17,23 @@ var response = await request.SendAsync();
 ## Configs
 ```csharp
 var request = RequestBuilder.Create("YOUR_URL")
-
     .WithBearerToken("JWT_TOKEN")             // <--- Authentication as bearer token here!
     .WithHeader("Accept", "application/json") // <--- Your custom headers!
     .WithHeader("CUSTOM_KEY", "CUSTOM_VALUE") // <--- Your custom headers!
-    .WithRetryAttemptsForFailed(3)            //   <--- Number of retries after failure!
-
+    .WithRetryAttemptsForFailed(options =>
+    {
+        options.MaxRetries = 5;                   //   <--- Number of retries after failure!
+        options.Delay = TimeSpan.FromSeconds(1);  //   <--- Number of retries after failure!
+    })
     .Build();
 ```
 
 ### Support external HttpClient
 ```csharp
+// Create your client!
 var httpClient = new HttpClient();
 
-var request = RequestBuilder.Create("YOUR_URL")
-    .Build(httpClient);
+// Pass to builder!
+var request = RequestBuilder.Create("YOUR_URL", HttpMethod.Get, httpClient)
+    .Build();
 ```

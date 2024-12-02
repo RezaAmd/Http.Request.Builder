@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
   <p>
     <a href="https://www.nuget.org/packages/Http.Request.Builder/" target="_blank">
       <img src="#" width="100px" />
@@ -38,11 +38,42 @@ var response = await request.SendAsync();
 ## Configs
 ```csharp
 var request = RequestBuilder.Create("YOUR_URL")
-
-    .WithBearerToken("JWT_TOKEN")             // <--- Authentication as bearer token here!
-    .WithHeader("Accept", "application/json") // <--- Your custom headers!
-    .WithHeader("CUSTOM_KEY", "CUSTOM_VALUE") // <--- Your custom headers!
-    .WithRetryAttemptsForFailed(3)            //   <--- Number of retries after failure!
-
+    .WithBearerToken("JWT_TOKEN")                 // <--- Authentication as bearer token here!
+    .WithHeader("Accept", "application/json")     // <--- Your custom headers!
+    .WithHeader("CUSTOM_KEY", "CUSTOM_VALUE")     // <--- Your custom headers!
+    .WithRetryAttemptsForFailed(options =>
+    {
+        options.MaxRetries = 5;                   //   <--- Number of retries after failure!
+        options.Delay = TimeSpan.FromSeconds(1);  //   <--- Number of retries after failure!
+    })
     .Build();
+```
+
+## Asp.Net core example:
+☝ Create your custom client (for example we create `WeatherClient.cs`) and register in `startup.cs` or `program.cs`.
+### `Program.cs`:
+```csharp
+// ...
+builder.Services.AddHttpClient<WeatherClient>();
+// ...
+```
+### `WeatherClient.cs`
+```csharp
+    public class WeatherClient
+    {
+        private readonly HttpClient _httpClient;
+
+        public WeatherClient(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+
+        public async Task FetchAsync()
+        {
+            var request = RequestBuilder.Create("https://Weather_URL/Get", HttpMethod.Get, _httpClient) // <--- Pass your client here!
+              .Build();
+
+            var response = await request.SendAsync();
+        }
+    }
 ```

@@ -9,7 +9,7 @@ UserInputData user = new()
 var request = RequestBuilder.Create("https://localhost:44383/authentication/signIn", HttpMethod.Post)
     .WithDataFromBodyAsJson(user)
     .WithHeader("CUSTOM_HEADER", "YOUR_API_KEY")
-    .WithRetryAttemptsForFailed(5)
+    .WithRetryAttemptsForFailed()
     .Build();
 
 var response = await request.SendAsync();

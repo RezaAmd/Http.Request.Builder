@@ -12,7 +12,7 @@ namespace Http.Request.Builder.Builder
         /// If the response is failed, it will try again. (Retry Pattern)
         /// </summary>
         /// <param name="attemptsCount">Number of attempts.</param>
-        IHeaderOrBuilder WithRetryAttemptsForFailed(int attemptsCount = 3);
+        IHeaderOrBuilder WithRetryAttemptsForFailed(int attemptsCount);
 
         /// <summary>
         /// If the response is failed, it will try again. (Retry Pattern).
@@ -23,7 +23,7 @@ namespace Http.Request.Builder.Builder
         /// If no action is provided, default retry attempt settings will be used.
         /// </param>
         /// <returns></returns>
-        IHeaderOrBuilder WithRetryAttemptsForFailed(Action<FailedRetryAttemptOptionsModel>? options);
+        IHeaderOrBuilder WithRetryAttemptsForFailed(Action<FailedRetryAttemptOptionsModel>? options = null);
 
         /// <summary>
         /// Build a new http request.

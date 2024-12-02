@@ -36,10 +36,6 @@ jobs:
         with:
           dotnet-version: '6.0'
 
-      - name: Build and Publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          dotnet build
-          dotnet pack --configuration Release
-          dotnet nuget push bin/Release/*.nupkg --source "github"
+      - name: Push NuGet Package
+        run: dotnet nuget push bin/Release/*.nupkg --source "https://nuget.pkg.github.com/RezaAmd/index.json" --api-key ${{ secrets.GITHUB_PAT }}
+

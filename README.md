@@ -1,7 +1,7 @@
 ﻿<div align="center">
   <p>
     <a href="https://www.nuget.org/packages/Http.Request.Builder/" target="_blank">
-      <img src="https://github.com/user-attachments/assets/3bbf5f0e-112d-4f54-8782-222618c17cb3" width="100px" />
+      <img src="https://github.com/user-attachments/assets/7918b094-615c-43f7-9eab-6e76ca027393" width="100px" />
     </a>
   <h1>Http.Request.Builder</h1>
   </p>

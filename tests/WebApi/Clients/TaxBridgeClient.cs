@@ -23,7 +23,7 @@ namespace WebApi.Clients
 
             var request = RequestBuilder.Create("https://sandboxrc-dev.rimatsp.com/auth/login2", HttpMethod.Post, _httpClient)
                 .WithDataFromBodyAsJson(signInModel)
-                .WithRetryAttemptsForFailed()
+                .AddRetryPolicy()
                 .Build();
 
             var response = await request.SendAsync(cancellationToken);

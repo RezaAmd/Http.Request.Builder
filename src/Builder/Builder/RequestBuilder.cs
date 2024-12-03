@@ -138,7 +138,7 @@ namespace Http.Request.Builder.Builder
             return this;
         }
 
-        public IHeaderOrBuilder WithRetryAttemptsForFailed(Action<FailedRetryAttemptOptionsModel>? options = null)
+        public IHeaderOrBuilder AddRetryPolicy(Action<FailedRetryAttemptOptionsModel>? options = null)
         {
             _httpRequestDetail.isTryForFailEnabled = true;
 

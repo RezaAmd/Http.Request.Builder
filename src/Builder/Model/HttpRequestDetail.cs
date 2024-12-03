@@ -18,7 +18,7 @@ namespace Http.Request.Builder.Model
         public HttpContent? Content { get; set; }
 
         public bool isTryForFailEnabled { get; set; } = false;
-        public FailedRetryAttemptOptionsModel FailedAttemptsOptions { get; set; } = new();
+        public RetryPolicyOptionsModel FailedAttemptsOptions { get; set; } = new();
 
         #region Ctor
 

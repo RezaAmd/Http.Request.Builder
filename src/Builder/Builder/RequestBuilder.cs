@@ -138,12 +138,12 @@ namespace Http.Request.Builder.Builder
             return this;
         }
 
-        public IHeaderOrBuilder AddRetryPolicy(Action<FailedRetryAttemptOptionsModel>? options = null)
+        public IHeaderOrBuilder AddRetryPolicy(Action<RetryPolicyOptionsModel>? options = null)
         {
             _httpRequestDetail.isTryForFailEnabled = true;
 
             // Initialize a default instance
-            var retryOptions = new FailedRetryAttemptOptionsModel();
+            var retryOptions = new RetryPolicyOptionsModel();
 
             // If options is not null, invoke it to configure the retryOptions
             options?.Invoke(retryOptions);

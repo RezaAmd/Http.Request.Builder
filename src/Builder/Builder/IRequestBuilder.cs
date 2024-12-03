@@ -19,11 +19,11 @@ namespace Http.Request.Builder.Builder
         /// The default value of retry count is 1 with 1s delay.
         /// </summary>
         /// <param name="options">
-        /// An optional action to configure the retry attempt settings using a <see cref="FailedRetryAttemptOptionsModel"/> instance.
+        /// An optional action to configure the retry attempt settings using a <see cref="RetryPolicyOptionsModel"/> instance.
         /// If no action is provided, default retry attempt settings will be used.
         /// </param>
         /// <returns></returns>
-        IHeaderOrBuilder AddRetryPolicyAction<FailedRetryAttemptOptionsModel>? options = null);
+        IHeaderOrBuilder AddRetryPolicy(Action<RetryPolicyOptionsModel>? options = null);
 
         /// <summary>
         /// Build a new http request.

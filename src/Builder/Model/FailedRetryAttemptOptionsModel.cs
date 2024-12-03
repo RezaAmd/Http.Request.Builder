@@ -2,7 +2,7 @@
 
 namespace Http.Request.Builder.Model
 {
-    public class FailedRetryAttemptOptionsModel
+    public class RetryPolicyOptionsModel
     {
         /// <summary>
         /// Default is 1.

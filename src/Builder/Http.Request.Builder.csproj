@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<Title>Http Request Builder</Title>
 		<Authors>Reza Ahmadi</Authors>
-		<Version>8.0.13</Version>
+		<Version>8.1.1</Version>
 		<Description>Http request as builder pattern for easier to use with retry pattern when an request was failed. You can deserialize response of request with T type.
 		</Description>
 		<Copyright>Copyright Reza Ahmadi</Copyright>

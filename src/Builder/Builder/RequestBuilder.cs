@@ -42,7 +42,7 @@ namespace Http.Request.Builder.Builder
             return this;
         }
 
-        public IOptionsBuilder BasicAuthentication(string username, string password)
+        public IOptionsBuilder WithBasicAuthentication(string username, string password)
         {
             _httpRequestDetail.Authentication = new AuthenticationHeaderValue("Basic",
                 Convert.ToBase64String(Encoding.UTF8.GetBytes($"{username}:{password}")));

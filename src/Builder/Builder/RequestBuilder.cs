@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 
 namespace Http.Request.Builder.Builder
@@ -31,7 +32,6 @@ namespace Http.Request.Builder.Builder
             => new RequestBuilder(url, method);
 
         #region URI & Authorization
-
         /// <summary>
         /// Authentication by bearer JWT token.
         /// </summary>
@@ -42,10 +42,15 @@ namespace Http.Request.Builder.Builder
             return this;
         }
 
+        public IOptionsBuilder BasicAuthentication(string username, string password)
+        {
+            _httpRequestDetail.Authentication = new AuthenticationHeaderValue("Basic",
+                Convert.ToBase64String(Encoding.UTF8.GetBytes($"{username}:{password}")));
+            return this;
+        }
         #endregion
 
         #region Headers
-
         /// <summary>
         /// Add extra header for request.
         /// </summary>
@@ -63,17 +68,14 @@ namespace Http.Request.Builder.Builder
             _httpRequestDetail.Headers.Add(header.Key, header.Value);
             return this;
         }
-
         #endregion
 
         #region Body Content
-
         public IHeaderOrBuilder WithHttpContent(HttpContent content)
         {
             _httpRequestDetail.Content = content;
             return this;
         }
-
 
         public IHeaderOrBuilder WithContentAsFormData<TData>(TData form)
         {
@@ -128,7 +130,6 @@ namespace Http.Request.Builder.Builder
         {
             return WithContentAsRaw(JsonSerializer.Serialize(data));
         }
-
         #endregion
 
         public IHeaderOrBuilder WithRetryAttemptsForFailed(int attemptsCount = 3)
